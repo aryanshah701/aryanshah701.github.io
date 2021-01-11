@@ -12,6 +12,7 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/magnific-popup.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">	
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/my-main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -54,7 +55,39 @@
 								</div>
 
 							</div>
-							<p></p>
+							<p>A dynamic programming algorithm that takes performs video segmentation for feeds from 3 cameras based on a 
+								deterministic black-box Quality function. Each frame in a camera's video feed is represented as a randomized 
+								string of length 80.
+							</p>
+							<h3 id="logic">Logic</h3>
+							<p>The program defines OPT[k, i] to denote the optimal value of segmenting frames 0 to i assuming that the last clip is from Camera k. The following recurrence is then used to solve the problem</p>
+							<div class="figure">
+							<img style="width:100%;"src="https://user-images.githubusercontent.com/30478978/103305571-74b9da00-49d9-11eb-8d7e-4e1357744ce3.png" />
+							</div>
+							<h3 id="breakdown-of-test-files">Breakdown of test files</h3>
+							<p>The test files in the sample-tests directory are textual files of the form &lt;prefix&gt;&lt;camera-name&gt;.txt. Files with the same prefix will be parsed by the program and considered for segmentation.</p>
+							<ul>
+								<li>For example, 3stringsA.txt, 3stringsB.txt, and 3stringsC.txt are textual files with 3 frames of video, from cameras A, B, and C, respectively.</li>
+							</ul>
+							<p>Each frame of video is represented as a randomized string of length 80.</p>
+							<h3 id="breakdown-of-output">Breakdown of output</h3>
+							<p>The output of the program consists of three sections.</p>
+							<ol style="list-style-type: decimal">
+								<li><p>The first section is the 2D DP table the program computes in O(n^2). Each row is for a Camera, and each column is for a frame of video.</p>
+								<ul>
+									<li>For instance, DP(A, 3) has the value of the maximized quality(as provided by the black-box function) possible for the first 3 frames given Camera A is used as the last segment.</li>
+								</ul>
+								<li style="margin-top: 0%;"><p>The second section provides the maximum quality possible given the cameras' feeds.</p></li>
+								<li><p>The third section provides the segmentation solution, where each line is of the form &lt;camera-name&gt;&lt;last-frame&gt;</p>
+								<ul>
+									<li>For instance, solution B3, A1 implies that the optimal solution uses frames 0 and 1 from camera A and frames 2 and 3 from camera B.</li>
+								</ul>
+							</ol>
+							<h3 id="acknowledgments">Acknowledgments</h2>
+							<ul>
+							<li><a href="kgold@ccs.neu.edu">Kevin Gold</a> - <em>Sample Tests and <code>BlackBox.java</code></em></li>
+							</ul>
+
 						</div>
 					</div>
 

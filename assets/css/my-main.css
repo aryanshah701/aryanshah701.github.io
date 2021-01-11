@@ -1,0 +1,16 @@
+p, ul, ol, li {
+    margin-bottom: 1em;
+}
+
+h2, h3 {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+div {
+    margin-bottom: 1em;
+}
+
+#exampleModalLabel {
+    margin-top: 0%
+}

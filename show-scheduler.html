@@ -12,6 +12,7 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/magnific-popup.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">	
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/my-main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -52,9 +53,30 @@
 
 								<div class="content" style="display: flex; justify-content: center;">
 								</div>
-
 							</div>
-							<p></p>
+							
+							<!-- Body -->
+							<p>A greedy algorithm in Java that solves the interval scheduling problem for cancellable requests that are received 
+								throughout the course of the day.<br />The algorithm uses a Priority Queue to prevent the need to resort the requests
+								 based on finish times every time a new request is added or canceled.<br />Rather than using Java's built-in Priority 
+								 Queue(based on minimum heaps) that performs peek, poll, and add in O(logn) time,<br />the algorithm uses a custom-built 
+								 Priority Queue built with static arrays to perform the same operations in constant time.
+							</p>
+
+							<h3 id="request-.txt-files">Input Files</h3>
+							<p>The program can parse requests in textual files that follow the conventions listed below.</p>
+							<ol>
+							<li>Requests to the resource must be of the form &ltstart-time&gt:&ltend-time&gt<br /></li>
+							<li>To cancel a request, a line of the form cancel &ltstart-time&gt:&ltend-time&gt must be used<br /></li>
+							<li>To model the passage of time during the day, a single 24-hour time must be used</li>
+							</ol>
+							<p>When the program comes across a 24-hour time, it schedules all requests that begin prior to that 24-hour time to simulate the passing of time until that given time.</p>
+							<p>Refer to the sample request files in the sample-tests directory to get a better understanding of the input.</p>
+							</ul>
+							<h2 id="acknowledgments">Acknowledgments</h2>
+							<ul>
+							<li><a href="mailto:kgold@ccs.neu.edu">Kevin Gold</a> - <em>Sample Tests and Request class</em></li>
+							</ul>
 						</div>
 					</div>
 
@@ -75,7 +97,6 @@
 						</ul>
 					</div>
 				</footer>
-
 			</div>
 
 		<!-- Scripts -->
